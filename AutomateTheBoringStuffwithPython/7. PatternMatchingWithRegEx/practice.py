@@ -27,8 +27,7 @@ def matchNumberWithCommaEvery3Digit(userInput: list[str] | str):
 
 
 if __name__ == '__main__':
-    # text = input("Enter whatever you want with extra spaces: \n")
-    # removingExtraSpaces(text)
+    text = input("Enter whatever you want with extra spaces: \n")
+    removingExtraSpaces(text)
     numbers = ['100', '1,000', '10,000', '100,000', '1,000,000', '10,00,000', '10,00']
-    numbers = '43,32  434,434 46  76,5  543,234'
     matchNumberWithCommaEvery3Digit(numbers)

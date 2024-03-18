@@ -56,6 +56,13 @@ respectively.
 
 '''
 
+'''
+When you use (?= ... ), it checks whether the specified pattern exists ahead in the string
+without actually consuming those characters in the match. 
+It's typically used for conditions that need to be satisfied 
+but don't necessarily need to be included in the final match.
+'''
+
 robocop = re.compile(r'robocop', re.I)
 print(robocop.search('RoboCop is part man, part machine, all cop.').group())
 #RoboCop
