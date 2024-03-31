@@ -1,0 +1,19 @@
+'''
+Type of tests:
+Unit test - A test that checks a small bit of code, like a function or a class, in isolation of the rest of the system.
+Integration test - A test that checks a larger bit of the code, maybe several classes, or a subsystem.
+System test - A test that checks all of the system under test in an environment.
+Functional test - A test that checks a single bit of functionality of a system.
+Subcutaneous test -
+'''
+
+
+# Many flags can be added when running pytest
+
+'''
+Used convention of unitests:
+• Test files should be named test_<something>.py or <something>_test.py.
+• Test methods and functions should be named test_<something>.
+• Test classes should be named Test<Something>.
+'''
+
