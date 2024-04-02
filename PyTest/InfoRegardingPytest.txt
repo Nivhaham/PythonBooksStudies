@@ -1,19 +1,72 @@
-'''
+
 Type of tests:
 Unit test - A test that checks a small bit of code, like a function or a class, in isolation of the rest of the system.
 Integration test - A test that checks a larger bit of the code, maybe several classes, or a subsystem.
 System test - A test that checks all of the system under test in an environment.
 Functional test - A test that checks a single bit of functionality of a system.
 Subcutaneous test -
-'''
 
 
-# Many flags can be added when running pytest
+Many flags can be added when running pytest
 
-'''
 Used convention of unitests:
 • Test files should be named test_<something>.py or <something>_test.py.
 • Test methods and functions should be named test_<something>.
 • Test classes should be named Test<Something>.
-'''
 
+pytest provides a cool mechanism to let you put markers on test functions.
+A test can have more than one marker, and a marker can be on multiple
+tests.
+
+running a test with -m '{someName}' will run all the tests with this specific mark.
+
+pytest includes a few helpful builtin markers: skip, skipif, and xfail
+
+We can define a fixture to get the database initialized before the test and cleaned up after the test.
+
+an example of running pytest on tests/func directory with no traceback with verbose option on.
+pytest -v tests/func --tb=no
+
+an example of running pytest on specific file on specific function
+pytest -v tests/func/test_add.py::test_add_returns_valid_id
+
+The -k option enables you to pass in an expression to run tests that have
+certain names specified by the expression as a substring of the test name.
+You can use and, or, and not in your expression to create complex expressions.
+For example, we can run all of the functions that have _raises in their name:
+$ cd /path/to/code/ch2/tasks_proj
+$ pytest -v -k _raises
+$ pytest -v -k "_raises and not delete"
+
+@pytest.mark.parametrize
+Parametrized testing is a way to send multiple sets of data
+through the same test and have pytest report if any of the sets failed
+
+
+Fixtures are functions that are run by pytest before (and sometimes
+after) the actual test functions. The code in the fixture can do whatever you
+want it to. You can use fixtures to get a data set for the tests to work on. You
+can use fixtures to get a system into a known state before running a test.
+Fixtures are also used to get data ready for multiple tests.
+
+I need to address the fact that the term fixture has many meanings in the programming
+and test community, and even in the Python community. I use “fixture,” “fixture function,” and “fixture method” interchangeably
+
+You can put fixtures into individual test files, but to share fixtures among
+multiple test files, you need to use a conftest.py file somewhere centrally located
+for all of the tests. For the Tasks project, all of the fixtures will be in
+tasks_proj/tests/conftest.py.
+
+Here’s a rundown of each scope value:
+scope='function'
+Run once per test function. The setup portion is run before each test using
+the fixture. The teardown portion is run after each test using the fixture.
+This is the default scope used when no scope parameter is specified.
+scope='class'
+Run once per test class, regardless of how many test methods are in the class.
+scope='module'
+Run once per module, regardless of how many test functions or methods
+or other fixtures in the module use it.
+scope='session'
+Run once per session. All test methods and functions using a fixture of
+session scope share one setup and teardown call.
