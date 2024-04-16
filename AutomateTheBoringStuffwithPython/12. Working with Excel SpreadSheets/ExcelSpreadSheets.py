@@ -26,6 +26,11 @@ def runOverMultipleRows(wb):
         for cellObj in rowsCellObject:
             print(cellObj.value)
 
+def mergingExample(filename,wb):
+    sheet1 = wb['MySheet']
+    sheet1.merge_cells('A1:D3')
+    sheet1['A1'] = 'Twelve cells merged together.'
+    wb.save(filename)
 
 def writingAndSaving(wb):
 
@@ -41,10 +46,13 @@ def writingAndSaving(wb):
         new_filename = f"{base_filename}_{counter}{extension}"
     wb.save(new_filename)
 
+
 def main():
-    wb = openpyxl.load_workbook('MaHaLuzExample.xlsx')
+    file_name = 'MaHaLuzExample.xlsx'
+    wb = openpyxl.load_workbook(file_name)
     #basicSheetsCommand(wb)
     #runOverMultipleRows(wb)
+    #mergingExample(file_name,wb)
     #writingAndSaving(wb)
 
 if __name__ == '__main__':
