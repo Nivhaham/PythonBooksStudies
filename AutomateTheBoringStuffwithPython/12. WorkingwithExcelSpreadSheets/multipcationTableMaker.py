@@ -2,6 +2,8 @@ import openpyxl
 import sys
 import os
 
+# When you run this module, feed it with a positive int
+
 
 def makeExcel():
     wb = openpyxl.Workbook()
@@ -51,8 +53,8 @@ def calculateMatrix(file_name, wb,N):
 def main():
     file_name = makeExcel()
     wb = openpyxl.load_workbook(file_name)
-    # name = "Multipcation"
-    # nameSheet(file_name, wb, name)
+    name = "Multipcation"
+    nameSheet(file_name, wb, name)
     N = buildRowAndColumn(file_name, wb)
     calculateMatrix(file_name, wb, N)
 
