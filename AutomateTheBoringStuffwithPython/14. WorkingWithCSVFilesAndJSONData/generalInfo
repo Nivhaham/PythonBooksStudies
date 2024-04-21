@@ -1,0 +1,34 @@
+
+PDF and Word are in a binary format.
+CSV and Json are in a plain text format.
+csv - comma separated values
+json - javascript object notation.
+
+
+CSV:
+CSV files are simple, lacking many of the features of an Excel spreadsheet.
+• For example, CSV files
+• Don’t have types for their values—everything is a string
+• Don’t have settings for font size or color
+• Don’t have multiple worksheets
+• Can’t specify cell widths and heights
+• Can’t have merged cells
+• Can’t have images or charts embedded in them
+
+The advantage of CSV files is simplicity. CSV files are widely supported
+by many types of programs, can be viewed in text editors,
+and are a straightforward way to represent spreadsheet data.
+The CSV format is exactly as advertised: It’s just a text file of comma-separated
+values.
+
+JSON:
+
+
+Many websites make their data available in JSON format. Facebook,
+Twitter, Yahoo, Google, Tumblr, Wikipedia, Flickr, Data.gov, Reddit, IMDb,
+Rotten Tomatoes, LinkedIn, and many other popular sites offer APIs for
+programs to use. Some of these sites require registration, which is almost
+always free. You’ll have to find documentation for what URLs your program
+needs to request in order to get the data you want, as well as the general
+format of the JSON data structures that are returned. This documentation
+should be provided by whatever site is offering the API
